@@ -4,6 +4,10 @@ const todo = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    isComplete: {
+      type: DataTypes.BOOLEAN,
+      default: false,
+    },
   })
 
   Todo.associate = models => {

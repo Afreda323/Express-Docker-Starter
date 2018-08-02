@@ -17,7 +17,7 @@ const user = (sequelize, DataTypes) => {
   })
 
   User.beforeCreate((user) => {
-    const hash = bcrypt.hashSync(user.password, 10)
+    const hash = bcrypt.hashSync(String(user.password), 10)
     user.password = hash
   })
 
@@ -28,6 +28,8 @@ const user = (sequelize, DataTypes) => {
   User.associate = models => {
     User.hasMany(models.Todo)
   }
+
+  User.sync()
 
   return User
 }
