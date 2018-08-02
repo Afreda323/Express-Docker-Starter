@@ -8,5 +8,8 @@ router.use(expressJwt({ secret: process.env.JWT_SECRET }))
 router.get('/', controller.getTodos)
 router.get('/:id', controller.getTodo)
 router.post('/', controller.createTodo)
+router.put('/:id', controller.editTodo)
+router.put('/:id/toggle', controller.toggleTodo)
+router.delete('/:id', controller.deleteTodo)
 
 module.exports = router

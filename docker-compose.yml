@@ -1,4 +1,4 @@
-version: '2'
+version: '2.1'
 services:
   web:
     build: .
@@ -9,10 +9,16 @@ services:
     ports:
       - "3000:3000"
     depends_on:
-      - postgres
+      "postgres":
+        condition: service_healthy
     env_file:
       - .env
   postgres:
     image: postgres:9.6.2-alpine
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
     env_file:
       - .env
