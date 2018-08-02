@@ -14,7 +14,7 @@ const sequelize = new Sequelize(CONNECTION, {
 
 const models = {
   User: sequelize.import('./models/User'),
-  Todo: sequelize.import('./models/Todo'),
+  TodoItem: sequelize.import('./models/Todo'),
 }
 
 Object.keys(models).forEach(key => {

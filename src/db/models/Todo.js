@@ -1,5 +1,5 @@
-const todo = (sequelize, DataTypes) => {
-  const Todo = sequelize.define('todo', {
+const todoItem = (sequelize, DataTypes) => {
+  const TodoItem = sequelize.define('todoItem', {
     text: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -8,13 +8,15 @@ const todo = (sequelize, DataTypes) => {
       type: DataTypes.BOOLEAN,
       default: false,
     },
+    userId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
   })
 
-  Todo.associate = models => {
-    Todo.belongsTo(models.User)
-  }
+  TodoItem.sync()
 
-  return Todo
+  return TodoItem
 }
 
-module.exports = todo
+module.exports = todoItem

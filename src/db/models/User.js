@@ -25,10 +25,6 @@ const user = (sequelize, DataTypes) => {
     return bcrypt.compareSync(somePassword, this.password)
   }
 
-  User.associate = models => {
-    User.hasMany(models.Todo)
-  }
-
   User.sync()
 
   return User

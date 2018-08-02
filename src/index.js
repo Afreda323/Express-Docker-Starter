@@ -9,13 +9,13 @@ const router = require('./routes')
 const app = express()
 const { PORT } = process.env
 
-sequelize.authenticate()
-  .then(() => {
-    logger.info('Connection has been established successfully.')
-  })
-  .catch(err => {
-    logger.error(`Unable to connect to the database: ${err}`)
-  })
+// sequelize.authenticate()
+//   .then(() => {
+//     logger.info('Connection has been established successfully.')
+//   })
+//   .catch(err => {
+//     logger.error(`Unable to connect to the database: ${err}`)
+//   })
 
 app.use(helmet())
 app.use(cors())

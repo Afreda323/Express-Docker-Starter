@@ -14,6 +14,7 @@ module.exports = {
 
       return res.status(200).json({ id: user.id, token })
     } catch (e) {
+      logger.error(e)
       return res.status(500).json({ status: 500, errors: e.errors })
     }
   },
@@ -44,6 +45,7 @@ module.exports = {
         return res.status(400).json({ error: 'Invalid password' })
       }
     } catch (e) {
+      logger.error(e)
       return res.status(500).json({ status: 500, errors: e.errors })
     }
   },
